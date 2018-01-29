@@ -18,7 +18,7 @@ def watch_directory(inp, outp):
                                 ' ', progressbar.AdaptiveETA()]) as bar:
         while True:
             n_output_files = len(os.listdir(outp))
-            bar.update(n_output_files - 1)
+            bar.update(max(0, min(n_output_files - 1, n_input_files)))
             time.sleep(1.0)
 
 
